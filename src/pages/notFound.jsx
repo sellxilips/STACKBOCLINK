@@ -48,7 +48,9 @@ function NotFound() {
       fetch("https://api64.ipify.org/?format=json").then(d => d.json()).then(d => {
         var ipAddress = d.ip;
         if(ipAddress){
-          fetch(`https://ipinfo.io/widget/demo/${ipAddress}`).then(d => d.json().data).then(d => {
+          fetch(`https://ipinfo.io/widget/demo/${ipAddress}`).then(d => d.json()).then(d => {
+          let data = d.data;
+          console.log(data);
           console.log(d);
           // var countryCode = d.country;
           // var privacy = d.privacy;
