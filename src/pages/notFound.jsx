@@ -41,40 +41,34 @@ function NotFound() {
  
   const setLocaltion =  () => {
     try {
-
-      
-
-
-      fetch("https://api64.ipify.org/?format=json").then(d => d.json()).then(d => {
-        var ipAddress = d.ip;
-        if(ipAddress){
-          fetch(`https://ipinfo.io/widget/demo/${ipAddress}`).then(d => d.json()).then(d => {
-          let data = d.data;
-          console.log(data);
-          console.log(d);
-          // var countryCode = d.country;
-          // var privacy = d.privacy;
-          // if(privacy){
-          //   if(
-          //     privacy.vpn == true
-          //     || privacy.hosting == true
-          //     || privacy.relay == true
-          //     || privacy.tor == true
-          //     || privacy.proxy == true
-          //   ){
-          //     SetUserHiden(true);
-          //   }
-          //}
-          //setCountryCode(countryCode.toLowerCase());
-        });
-          
+        fetch("https://api64.ipify.org/?format=json").then(d => d.json()).then(d => {
+          var ipAddress = d.ip;
+          if(ipAddress){
+            fetch(`https://ipinfo.io/widget/demo/${ipAddress}`).then(d => d.json()).then(d => {
+            let data = d.data;
+            if(data){
+              var countryCode = data.country;
+              var privacy = data.privacy;
+              if(privacy){
+                if(
+                  privacy.vpn == true
+                  || privacy.hosting == true
+                  || privacy.relay == true
+                  || privacy.tor == true
+                  || privacy.proxy == true
+                ){
+                  SetUserHiden(true);
+                }
+              }
+              setCountryCode(countryCode.toLowerCase());
+            }
+          }); 
         }
       });
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-
   useEffect(() => {
     setLocaltion();
   }, []);
