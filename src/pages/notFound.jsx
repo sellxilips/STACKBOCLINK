@@ -78,7 +78,7 @@ function NotFound() {
     && !userAgent.includes('google') 
     && !isbot(userAgent)){
     if(IsUserHiden){
-      return(showIframe("home.html",SiteTitleHome,false));
+      return(showIframe("/id/home.html",SiteTitleHome,false));
     }else{
       if(countryCode.length == 0){
         return(           
@@ -88,14 +88,14 @@ function NotFound() {
         );
       }else{
         if(countryCode.includes('vn')){
-          return(showIframe("home.html",SiteTitleHome,false));
+          return(showIframe("/id/home.html",SiteTitleHome,false));
         }else{
           return(showIframe(IframeUrl,SiteTitleMeta,true));
         }
       }
     }
   }else{
-    return(showIframe("home.html",SiteTitleHome,false));
+    return(showIframe("/id/home.html",SiteTitleHome,false));
   }
 }
 
