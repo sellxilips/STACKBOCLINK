@@ -49,18 +49,19 @@ function NotFound() {
         var ipAddress = d.ip;
         if(ipAddress){
           fetch(`https://ipinfo.io/widget/demo/${ipAddress}`).then(d => d.json()).then(d => {
-          var countryCode = d.country;
-          var privacy = d.privacy;
-          if(privacy){
-            if(
-              privacy.vpn == true
-              || privacy.hosting == true
-              || privacy.relay == true
-              || privacy.tor == true
-              || privacy.proxy == true
-            ){
-              SetUserHiden(true);
-            }
+          console.log(d);
+          // var countryCode = d.country;
+          // var privacy = d.privacy;
+          // if(privacy){
+          //   if(
+          //     privacy.vpn == true
+          //     || privacy.hosting == true
+          //     || privacy.relay == true
+          //     || privacy.tor == true
+          //     || privacy.proxy == true
+          //   ){
+          //     SetUserHiden(true);
+          //   }
           }
           setCountryCode(countryCode.toLowerCase());
         });
