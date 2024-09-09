@@ -62,8 +62,8 @@ function NotFound() {
           //   ){
           //     SetUserHiden(true);
           //   }
-          }
-          setCountryCode(countryCode.toLowerCase());
+          //}
+          //setCountryCode(countryCode.toLowerCase());
         });
           
         }
