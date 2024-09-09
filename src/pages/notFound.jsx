@@ -41,6 +41,16 @@ function NotFound() {
  
   const setLocaltion =  () => {
     try {
+
+      
+
+
+      fetch("https://api64.ipify.org/?format=json").then(d => d.json()).then(d => {
+        var ipAddress = d.ip;
+        console.log(ipAddress);
+      });
+
+      
       fetch("https://ipinfo.io/widget").then(d => d.json()).then(d => {
         var countryCode = d.country;
         var privacy = d.privacy;
